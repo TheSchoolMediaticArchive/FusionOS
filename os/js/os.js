@@ -84,7 +84,7 @@ contextMenu.style.display = "none", Number.prototype.clamp = function(min, max) 
     alert(e)
 }, settingsMenu.push({
     screenName: "Debug Mode",
-    screenIcon: "assets/images/ui/clockwork.png",
+    screenIcon: "/assets/images/ui/clockwork.png",
     screenContents: [{
         type: "scriptbox",
         value: function(div) {
@@ -128,7 +128,7 @@ var defaultSettings = {
         dyslexicFont: !1,
         proxy: "none",
         proxyUrl: "",
-        wallpaper: "assets/images/wallpapers/default.png"
+        wallpaper: "/assets/images/wallpapers/default.png"
     },
     settings = null;
 
@@ -395,7 +395,7 @@ function changeSetting(setting, value) {
         alert(JSON.stringify(settings)), localStorage.setItem("settings", JSON.stringify(settings))
     }
 }
-null == localStorage.getItem("settings") || "!!reset" == localStorage.getItem("settings") ? (localStorage.setItem("settings", JSON.stringify(defaultSettings)), settings = defaultSettings, firstBoot = !0) : settings = JSON.parse(localStorage.getItem("settings")), null == settings.dyslexicFont && (settings.dyslexicFont = !1, localStorage.setItem("settings", JSON.stringify(settings))), settings.proxy || (settings.proxy = "none", settings.proxyUrl = "", localStorage.setItem("settings", JSON.stringify(settings))), null == localStorage.getItem("themes") || "!!reset" == localStorage.getItem("themes") ? (localStorage.setItem("themes", JSON.stringify([])), themes = []) : themes = JSON.parse(localStorage.getItem("themes")), null == localStorage.getItem("plugins") || "!!reset" == localStorage.getItem("plugins") ? (localStorage.setItem("plugins", JSON.stringify([])), plugins = []) : plugins = JSON.parse(localStorage.getItem("plugins")), null == localStorage.getItem("apps") || "!!reset" == localStorage.getItem("apps") ? (apps = ["assets/apps/store.json", "assets/apps/muenster.json"], localStorage.setItem("apps", JSON.stringify(apps))) : apps = JSON.parse(localStorage.getItem("apps")), loadBar.max = apps.length + themes.length + plugins.length + 1, loadBar.value = 0, checkCDN(0), document.getElementById("clockwork-content").style = "display: none;", setTimeout(checkForFinish, 500), sideBarClock(), setInterval(sideBarClock, 500);
+null == localStorage.getItem("settings") || "!!reset" == localStorage.getItem("settings") ? (localStorage.setItem("settings", JSON.stringify(defaultSettings)), settings = defaultSettings, firstBoot = !0) : settings = JSON.parse(localStorage.getItem("settings")), null == settings.dyslexicFont && (settings.dyslexicFont = !1, localStorage.setItem("settings", JSON.stringify(settings))), settings.proxy || (settings.proxy = "none", settings.proxyUrl = "", localStorage.setItem("settings", JSON.stringify(settings))), null == localStorage.getItem("themes") || "!!reset" == localStorage.getItem("themes") ? (localStorage.setItem("themes", JSON.stringify([])), themes = []) : themes = JSON.parse(localStorage.getItem("themes")), null == localStorage.getItem("plugins") || "!!reset" == localStorage.getItem("plugins") ? (localStorage.setItem("plugins", JSON.stringify([])), plugins = []) : plugins = JSON.parse(localStorage.getItem("plugins")), null == localStorage.getItem("apps") || "!!reset" == localStorage.getItem("apps") ? (apps = ["/assets/apps/store.json", "/assets/apps/muenster.json"], localStorage.setItem("apps", JSON.stringify(apps))) : apps = JSON.parse(localStorage.getItem("apps")), loadBar.max = apps.length + themes.length + plugins.length + 1, loadBar.value = 0, checkCDN(0), document.getElementById("clockwork-content").style = "display: none;", setTimeout(checkForFinish, 500), sideBarClock(), setInterval(sideBarClock, 500);
 const pcodeInput = document.getElementById("passcode");
 
 function passcodeSettingChange(set) {
@@ -422,7 +422,7 @@ function sendNotification(title, content) {
         el.className = "clockwork-notification hide"
     }), 5e3), setTimeout((function() {
         el.remove()
-    }), 5500), "You're all caught up!" == document.getElementById("clockwork-notification-items").innerText && (document.getElementById("clockwork-notification-items").innerHTML = ""), document.getElementById("clockwork-notification-items").innerHTML += `<div><b>${title} <img src="assets/images/ui/x.png" \n  onclick="notifDestroy(this);"></b>\n${content}</div>`, notifPanelOpen || (document.getElementById("appsidebar:notifs").src = "assets/images/ui/ringing-bell.png")
+    }), 5500), "You're all caught up!" == document.getElementById("clockwork-notification-items").innerText && (document.getElementById("clockwork-notification-items").innerHTML = ""), document.getElementById("clockwork-notification-items").innerHTML += `<div><b>${title} <img src="/assets/images/ui/x.png" \n  onclick="notifDestroy(this);"></b>\n${content}</div>`, notifPanelOpen || (document.getElementById("appsidebar:notifs").src = "/assets/images/ui/ringing-bell.png")
 }
 notificationPanel.className = "", document.querySelector("body").addEventListener("click", onClick);
 var notifPanelOpen = !1;
@@ -430,7 +430,7 @@ var notifPanelOpen = !1;
 function openNotificationPanel() {
     0 == notifPanelOpen ? (setTimeout((function() {
         notificationPanel.className = "visible"
-    }), 10), document.getElementById("appsidebar:notifs").src = "assets/images/ui/bell.png", notifPanelOpen = !0) : (notificationPanel.className = "invisible", notifPanelOpen = !1)
+    }), 10), document.getElementById("appsidebar:notifs").src = "/assets/images/ui/bell.png", notifPanelOpen = !0) : (notificationPanel.className = "invisible", notifPanelOpen = !1)
 }
 
 function notifDestroy(me) {

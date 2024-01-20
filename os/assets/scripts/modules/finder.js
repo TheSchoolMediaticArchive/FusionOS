@@ -2,7 +2,7 @@ const searchables = [
     {
         searchText: ["prefs", "preferences"],
         name: "Settings",
-        icon: "/assets/images/ui/settings.png",
+        icon: "assets/images/ui/settings.png",
         onclick: function () {
             openApp('sys_settings');
         },
@@ -10,7 +10,7 @@ const searchables = [
     {
         searchText: ["chat", "discord"],
         name: "Chat on Discord",
-        icon: "/assets/images/ui/discord.png",
+        icon: "assets/images/ui/discord.png",
         onclick: function () {
             window.open("https://discord.gg/Sb8NzVbqX8", "_blank");
         },
@@ -18,7 +18,7 @@ const searchables = [
     {
         searchText: ["email", "support"],
         name: "Contact Support",
-        icon: "/assets/images/support.png",
+        icon: "assets/images/support.png",
         onclick: function () {
             window.open("mailto:support@mail.redstonenetwork.rit.cl", "_blank");
         },
@@ -26,7 +26,7 @@ const searchables = [
     {
         searchText: ["apps", "manage apps", "uninstall apps", "app settings"],
         name: "Manage Apps",
-        icon: "/assets/images/ui/app-window.png",
+        icon: "assets/images/ui/app-window.png",
         onclick: function () {
             openApp('sys_settings');
             loadSettingsScreen("Manage Apps");
@@ -35,7 +35,7 @@ const searchables = [
     {
         searchText: ["themes", "manage themes", "uninstall themes", "reorder themes", "set themes", "theme settings"],
         name: "Manage Themes",
-        icon: "/assets/images/ui/paintbrush-on-app-window.png",
+        icon: "assets/images/ui/paintbrush-on-app-window.png",
         onclick: function () {
             openApp('sys_settings');
             loadSettingsScreen("Manage Themes");
@@ -44,7 +44,7 @@ const searchables = [
     {
         searchText: ["proxy settings", "unblock settings", "unblocking settings", "ultraviolet settings"],
         name: "Proxy Settings",
-        icon: "/assets/images/ui/ultraviolet.png",
+        icon: "assets/images/ui/ultraviolet.png",
         onclick: function () {
             openApp('sys_settings');
             loadSettingsScreen("Proxy Settings");
@@ -53,7 +53,7 @@ const searchables = [
     {
         searchText: ["passcode settings", "password settings", "lock settings"],
         name: "Passcode Settings",
-        icon: "/assets/images/ui/key.png",
+        icon: "assets/images/ui/key.png",
         onclick: function () {
             openApp('sys_settings');
             loadSettingsScreen("Passcode Settings");
@@ -62,16 +62,16 @@ const searchables = [
     {
         searchText: ["control center settings", "time settings", "24-hour time", "12-hour time"],
         name: "Personalization",
-        icon: "/assets/images/ui/paintbrush.png",
+        icon: "assets/images/ui/paintbrush.png",
         onclick: function () {
             openApp('sys_settings');
             loadSettingsScreen("Personalization");
         },
     },
     {
-        searchText: ["about fusion os"],
+        searchText: ["about clockwork", "version clockwork", "clockwork version"],
         name: "About Fusion OS",
-        icon: "/assets/images/ui/clockwork.png",
+        icon: "assets/images/ui/clockwork.png",
         onclick: function () {
             openApp('sys_settings');
             loadSettingsScreen("About Fusion OS");

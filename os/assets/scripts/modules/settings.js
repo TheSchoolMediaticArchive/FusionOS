@@ -118,6 +118,8 @@ const settingsMenu = [
                     paper.style.backgroundImage = `url(${defaultWallpapers[i].preview})`;
                     paper.dataset.url = defaultWallpapers[i].url;
                     paper.onclick = function (e) {
+                        var audio = new Audio("https://fusion-softworks-llc.github.io/assets/sfx/Select.mp3");
+                        audio.play();
                         settings.wallpaper = e.target.dataset.url;
                         localStorage.setItem("settings", JSON.stringify(settings));
                     }
@@ -128,6 +130,8 @@ const settingsMenu = [
                 paper.innerText = "Custom wallpaper";
                 paper.style.backgroundImage = `url("/assets/images/wallpaper-previews/custom.png")`;
                 paper.onclick = function (e) {
+                    var audio = new Audio("https://fusion-softworks-llc.github.io/assets/sfx/Select.mp3");
+                    audio.play();
                     var url = prompt("Please enter the URL of the wallpaper file. SOME URLS MAY NOT WORK DUE TO THE BROWSER'S BUILT IN SECURITY SYSTEMS.")
                     if (!url) return;
                     settings.wallpaper = url;
@@ -155,13 +159,15 @@ const settingsMenu = [
             type: "scriptbox",
             value: function (div) {
                 div.innerHTML = `<p>
-        Fusion OS now supports setting a passcode, which lets you lock down Fusion OS for anyone but you. Note that if you lose your passcode, there is <b>no way to recover,</b> so please write it down somewhere!
+        Clockwork now supports setting a passcode, which lets you lock down Clockwork for anyone but you. Note that if you lose your passcode, there is <b>no way to recover,</b> so please write it down somewhere!
         </p>`;
 
                 var btn = document.createElement("btn");
                 if (settings.lock.enabled) btn.innerText = "Change passcode"
                 else btn.innerText = "Create new passcode";
                 btn.onclick = function (e) {
+                    var audio = new Audio("https://fusion-softworks-llc.github.io/assets/sfx/Select.mp3");
+                    audio.play();
                     if (settings.lock.enabled) {
                         if (prompt("Enter your old passcode.") != settings.lock.passcode) {
                             alert("Incorrect passcode!")
@@ -188,6 +194,8 @@ const settingsMenu = [
                 var btn = document.createElement("btn");
                 btn.innerText = "Remove passcode";
                 btn.onclick = function () {
+                    var audio = new Audio("https://fusion-softworks-llc.github.io/assets/sfx/Select.mp3");
+                    audio.play();
                     if (settings.lock.enabled) {
                         if (prompt("Enter your passcode.") != settings.lock.passcode) {
                             alert("Incorrect passcode!")
@@ -234,11 +242,13 @@ const settingsMenu = [
             type: "scriptbox",
             value: function (div) {
                 div.innerHTML = `<p>
-          This is a tool that allows you to import and export all the data stored in Fusion OS. Exporting will export your data in a .cws file, which can be imported easily. Importing will require a .cws file, and will force-restart Fusion OS. Also here is a Factory Reset option, which should only be used as a last resort (and will require your passcode.)
+          This is a tool that allows you to import and export all the data stored in Clockwork. Exporting will export your data in a .cws file, which can be imported easily. Importing will require a .cws file, and will force-restart Clockwork. Also here is a Factory Reset option, which should only be used as a last resort (and will require your passcode.)
           </p>`
                 var btn = document.createElement("btn");
                 btn.innerText = "Export"
                 btn.onclick = function () {
+                    var audio = new Audio("https://fusion-softworks-llc.github.io/assets/sfx/Select.mp3");
+                    audio.play();
                     var myFile = new Blob([JSON.stringify({
                         settings: settings,
                         apps: apps,
@@ -256,6 +266,8 @@ const settingsMenu = [
                 var btn = document.createElement("btn");
                 btn.innerText = "Import"
                 btn.onclick = function () {
+                    var audio = new Audio("https://fusion-softworks-llc.github.io/assets/sfx/Select.mp3");
+                    audio.play();
                     var input = document.createElement('input');
                     input.type = 'file';
                     input.accept = '.cws,.json'
@@ -285,9 +297,11 @@ const settingsMenu = [
                 var btn = document.createElement("btn");
                 btn.innerText = "Factory Reset"
                 btn.onclick = function () {
+                    var audio = new Audio("https://fusion-softworks-llc.github.io/assets/sfx/Select.mp3");
+                    audio.play();
                     if (prompt(`WAIT A MINUTE!
         
-Factory resets will remove ALL your data from Fusion OS, including apps, themes and more. We highly suggest you export your data before you do this. To confirm you want to reset, type "factory reset" into the box below.`).toLowerCase() != "factory reset") {
+Factory resets will remove ALL your data from Clockwork, including apps, themes and more. We highly suggest you export your data before you do this. To confirm you want to reset, type "factory reset" into the box below.`).toLowerCase() != "factory reset") {
                         alert("Aborting!")
                         return;
                     }
@@ -298,7 +312,7 @@ Factory resets will remove ALL your data from Fusion OS, including apps, themes 
                         }
                     }
                     localStorage.clear();
-                    alert("Successfully reset Fusion OS. Reloading...");
+                    alert("Successfully reset Clockwork. Reloading...");
 
                     window.onbeforeunload = function (event) { }; // this makes it so it doesn't reload
                     document.location.reload();
@@ -316,15 +330,7 @@ Factory resets will remove ALL your data from Fusion OS, including apps, themes 
             value: function (div) {
                 div.innerHTML = `v${version} ${versionNickname} at ${document.location.hostname}<br>
           Running ${navigator.userAgent}<br>
-          <br>
-          <h2>Credits</h2>
-          lukasexists<br>
-          l413<br>
-          hellscaped<br>
-          stolas<br>
-          Quino Al<br>
-          Bernard Spragg<br>
-          and you for using our stuff`
+          <br>`
             }
         }]
     },
